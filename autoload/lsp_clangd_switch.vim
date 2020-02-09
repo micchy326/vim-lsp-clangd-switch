@@ -12,6 +12,11 @@ function! lsp_clangd_switch#handle_clangd_switch_source_header(data) abort
 endfunction
 
 function! lsp_clangd_switch#lsp_clangd_switch_source_header() abort
+  if lsp#get_server_status('clangd') != 'running'
+    echo 'clangd is not running'
+    return
+  endif
+
   call lsp#send_request('clangd', {
     \ 'method': 'textDocument/switchSourceHeader',
     \ 'params':{
