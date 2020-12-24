@@ -4,7 +4,7 @@ function! lsp_clangd_switch#handle_clangd_switch_source_header(data) abort
   if l:file != v:null
     call lsp#utils#tagstack#_update()
     let s:loc = {'filename': l:file,'lnum':0, 'col':0} 
-    call lsp#utils#location#_open_vim_list_item(s:loc)
+    call lsp#utils#location#_open_vim_list_item(s:loc, '')
     echo 'Retrieved switch source/header'
   else
     echo 'switch file not found'
