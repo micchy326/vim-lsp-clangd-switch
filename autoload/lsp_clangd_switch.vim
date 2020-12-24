@@ -3,7 +3,7 @@ function! lsp_clangd_switch#handle_clangd_switch_source_header(data) abort
   let l:file = substitute(l:file, 'file://', '', '')
   if l:file != v:null
     call lsp#utils#tagstack#_update()
-    let s:loc = {'filename': l:file,'lnum':0, 'col':0} 
+    let s:loc = {'filename': l:file,'lnum':0, 'col':0}
     call lsp#utils#location#_open_vim_list_item(s:loc, '')
     echo 'Retrieved switch source/header'
   else
